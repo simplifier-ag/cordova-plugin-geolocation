@@ -35,6 +35,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <engine name="cordova-android" version=">=6.3.0" />
     </engines>
     <preference name="GPS_REQUIRED" default="true"/>
+    <preference name="GPS_USAGE_DESCRIPTION" default="This app collects location data to enable position recognition."/>
 
     <!-- android -->
     <platform name="android">
@@ -49,6 +50,10 @@ xmlns:android="http://schemas.android.com/apk/res/android"
           <feature name="Geolocation">
               <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
           </feature>
+        </config-file>
+
+        <config-file target="./res/xml/strings.xml" parent="/resources">
+            <string name="gps_usage_description">$GPS_USAGE_DESCRIPTION</string>
         </config-file>
 
         <source-file src="src/android/Geolocation.java" target-dir="src/org/apache/cordova/geolocation/" />
@@ -91,7 +96,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <header-file src="src/ios/CDVLocation.h" />
         <source-file src="src/ios/CDVLocation.m" />
         <framework src="CoreLocation.framework" />
-
     </platform>
 
     <!-- windows universal apps (Windows 8.1, Windows Phone 8.1, Windows 8.0) -->
